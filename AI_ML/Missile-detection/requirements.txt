@@ -1,0 +1,6 @@
+ultralytics
+opencv-python
+opencv-python-headless
+cvzone
+numpy
+matplotlib
