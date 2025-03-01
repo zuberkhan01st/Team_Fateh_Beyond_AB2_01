@@ -44,7 +44,7 @@ export default function Home() {
           transition={{ duration: 1, delay: 1 }}
           className="mt-12"
         >
-          <Link href="/contact">
+          <Link href="/login">
             <button className="px-8 py-4 bg-[#3B82F6] text-[#FFFFFF] font-semibold rounded-lg hover:bg-[#2563EB] transition duration-300 shadow-lg hover:shadow-xl">
               Get Started
             </button>
