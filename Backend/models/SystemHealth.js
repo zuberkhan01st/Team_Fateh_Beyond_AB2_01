@@ -7,6 +7,7 @@ const systemHealthSchema = new mongoose.Schema({
   visibilityStatus: { type: String, enum: ["Excellent", "Good", "Poor"], default: "Excellent" },
   activeZones: [{ type: String }],
   lastUpdated: { type: Date, default: Date.now },
+  
 });
 
 module.exports = mongoose.model("SystemHealth", systemHealthSchema);

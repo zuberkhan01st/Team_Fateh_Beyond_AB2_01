@@ -9,6 +9,12 @@ const incidentSchema = new mongoose.Schema({
   action: { type: String, enum: ["Tracked", "Reported", "Neutralized", "Pending"] },
   lat: { type: Number, required: true },
   lng: { type: Number, required: true },
+  imageUrl: {type: String},
+  createdAt: {
+    type: Date,
+    default: Date.now, // Automatically sets the creation timestamp
+    immutable: true, // Prevents modification after creation
+  },
 });
 
 module.exports = mongoose.model("Incident", incidentSchema);
