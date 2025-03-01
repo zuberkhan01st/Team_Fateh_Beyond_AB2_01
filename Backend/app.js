@@ -12,6 +12,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/', (req,res)=>{
+    return res.status(200).json({message: "Server's Working Fine!"});
+})
+
 app.use("/api/threats", require("./routes/threatRoutes"));
 
 module.exports = app;
