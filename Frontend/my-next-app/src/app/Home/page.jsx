@@ -52,56 +52,129 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-[#0F172A]">
+      {/* Arch Flow Section */}
+      <section className="py-20 bg-[#0F172A] relative overflow-hidden">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-[#3B82F6] mb-12">
-            Key Features
+            How It Works
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="p-6 bg-[#1E293B] rounded-lg shadow-lg border border-[#3B82F6]/50"
+
+          {/* Zig-Zag Connecting Line */}
+          <div className="absolute top-0 left-1/2 h-full w-2 transform -translate-x-1/2">
+            <svg
+              viewBox="0 0 20 100"
+              className="w-full h-full"
+              preserveAspectRatio="none"
             >
-              <Zap className="w-16 h-16 text-[#3B82F6] mx-auto" />
-              <h3 className="text-xl font-semibold text-[#E2E8F0] mt-4 mb-2 text-center">
-                Real-Time Detection
-              </h3>
-              <p className="text-[#E2E8F0] text-center">
-                Detect threats in real-time with minimal latency.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="p-6 bg-[#1E293B] rounded-lg shadow-lg border border-[#3B82F6]/50"
-            >
-              <Eye className="w-16 h-16 text-[#3B82F6] mx-auto" />
-              <h3 className="text-xl font-semibold text-[#E2E8F0] mt-4 mb-2 text-center">
-                High Accuracy
-              </h3>
-              <p className="text-[#E2E8F0] text-center">
-                Advanced AI models ensure high accuracy in threat identification.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1 }}
-              className="p-6 bg-[#1E293B] rounded-lg shadow-lg border border-[#3B82F6]/50"
-            >
-              <Cloud className="w-16 h-16 text-[#3B82F6] mx-auto" />
-              <h3 className="text-xl font-semibold text-[#E2E8F0] mt-4 mb-2 text-center">
-                Cloud Integration
-              </h3>
-              <p className="text-[#E2E8F0] text-center">
-                Seamless integration with cloud services for data storage and analysis.
-              </p>
-            </motion.div>
+              <path
+                d="M 10,0 Q 20,25 10,50 T 10,100"
+                stroke="#3B82F6"
+                strokeWidth="2"
+                fill="none"
+                strokeDasharray="5,5"
+              />
+            </svg>
           </div>
+
+          {/* Step 1: Surveillance Camera Input */}
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="flex items-center justify-end md:justify-start"
+          >
+            <div className="w-1/2">
+              <div className="p-6 bg-[#1E293B] rounded-lg shadow-lg border border-[#3B82F6]/50">
+                <Camera className="w-16 h-16 text-[#3B82F6]" />
+                <h3 className="text-xl font-semibold text-[#E2E8F0] mt-4 mb-2">
+                  Surveillance Camera Input
+                </h3>
+                <p className="text-[#E2E8F0]">
+                  Capture video footage from surveillance cameras or drones.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Step 2: AI Model Analysis */}
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="flex items-center justify-start md:justify-end mt-12"
+          >
+            <div className="w-1/2 ml-auto">
+              <div className="p-6 bg-[#1E293B] rounded-lg shadow-lg border border-[#3B82F6]/50">
+                <Shield className="w-16 h-16 text-[#3B82F6]" />
+                <h3 className="text-xl font-semibold text-[#E2E8F0] mt-4 mb-2">
+                  AI Model Analysis
+                </h3>
+                <p className="text-[#E2E8F0]">
+                  Process footage using advanced deep learning models like YOLO.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Step 3: Decision Making */}
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="flex items-center justify-end md:justify-start mt-12"
+          >
+            <div className="w-1/2">
+              <div className="p-6 bg-[#1E293B] rounded-lg shadow-lg border border-[#3B82F6]/50">
+                <AlertTriangle className="w-16 h-16 text-[#3B82F6]" />
+                <h3 className="text-xl font-semibold text-[#E2E8F0] mt-4 mb-2">
+                  Decision Making
+                </h3>
+                <p className="text-[#E2E8F0]">
+                  Determine if the object is a threat (e.g., drone/missile) or non-threatening (e.g., bird).
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Step 4: Alert System */}
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5 }}
+            className="flex items-center justify-start md:justify-end mt-12"
+          >
+            <div className="w-1/2 ml-auto">
+              <div className="p-6 bg-[#1E293B] rounded-lg shadow-lg border border-[#3B82F6]/50">
+                <Server className="w-16 h-16 text-[#3B82F6]" />
+                <h3 className="text-xl font-semibold text-[#E2E8F0] mt-4 mb-2">
+                  Alert System
+                </h3>
+                <p className="text-[#E2E8F0]">
+                  Notify authorities immediately if a threat is detected.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Step 5: Dashboard */}
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 2 }}
+            className="flex items-center justify-end md:justify-start mt-12"
+          >
+            <div className="w-1/2">
+              <div className="p-6 bg-[#1E293B] rounded-lg shadow-lg border border-[#3B82F6]/50">
+                <BarChart2 className="w-16 h-16 text-[#3B82F6]" />
+                <h3 className="text-xl font-semibold text-[#E2E8F0] mt-4 mb-2">
+                  Dashboard
+                </h3>
+                <p className="text-[#E2E8F0]">
+                  Display responses, logs, and incident details for authorities.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -146,9 +219,9 @@ export default function Home() {
               transition={{ duration: 1, delay: 1 }}
               className="p-6 bg-[#1E293B] rounded-lg shadow-lg border border-[#3B82F6]/50"
             >
-              <Globe className="w-16 h-16 text-[#3B82F6] mx-auto" />
+              <Cloud className="w-16 h-16 text-[#3B82F6] mx-auto" />
               <h3 className="text-xl font-semibold text-[#E2E8F0] mt-4 mb-2 text-center">
-                AWS
+                Cloud
               </h3>
               <p className="text-[#E2E8F0] text-center">
                 For cloud infrastructure and deployment.
@@ -181,7 +254,7 @@ export default function Home() {
           <p className="mb-4">
             Made with ❤️ by{" "}
             <a
-              href="https://github.com/Fateh-Beyond"
+              href="https://github.com/zuberkhan01st/Team_Fateh_Beyond_AB2_01"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#3B82F6] hover:underline"
@@ -192,7 +265,7 @@ export default function Home() {
           <p>
             View our project on{" "}
             <a
-              href="https://github.com/Fateh-Beyond/Airborne-Threat-Detection"
+              href="https://github.com/zuberkhan01st/Team_Fateh_Beyond_AB2_01"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#3B82F6] hover:underline"
