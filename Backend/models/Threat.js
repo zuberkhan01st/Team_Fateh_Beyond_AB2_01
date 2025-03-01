@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const ThreatSchema = new mongoose.Schema({
-    type: { type: String, enum: ['UAV', 'Aircraft', 'Birds', 'Unknown'] },
-    location: String,
-    severity: { type: String, enum: ['Low', 'Medium', 'High', 'Critical'] },
-    timestamp: { type: Date, default: Date.now }
+const threatClassificationSchema = new mongoose.Schema({
+  type: { type: String, enum: ["UAV", "Birds", "Aircraft", "Unknown"], required: true },
+  count: { type: Number, default: 0 },
+  color: { type: String, required: true },
+  lastUpdated: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Threat', ThreatSchema);
+module.exports = mongoose.model("ThreatClassification", threatClassificationSchema);
