@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import L from "leaflet"; // Leaflet library for maps
-import "leaflet/dist/leaflet.css"; // Import Leaflet CSS for styling
 import {
   MapPin,
   AlertTriangle,
@@ -28,7 +26,6 @@ import {
   Lock,
   CloudRain,
   Sun,
-  
   Wind,
   RefreshCw,
   Radar,
@@ -39,18 +36,22 @@ import {
 } from "lucide-react";
 
 // Dynamically import react-leaflet components to avoid SSR issues
-const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), {
-  ssr: false,
-});
-const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), {
-  ssr: false,
-});
-const Marker = dynamic(() => import("react-leaflet").then((mod) => mod.Marker), {
-  ssr: false,
-});
-const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
-  ssr: false,
-});
+const MapContainer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.MapContainer),
+  { ssr: false }
+);
+const TileLayer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.TileLayer),
+  { ssr: false }
+);
+const Marker = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Marker),
+  { ssr: false }
+);
+const Popup = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Popup),
+  { ssr: false }
+);
 
 export default function Dashboard() {
   const [incidents, setIncidents] = useState([]);
@@ -159,30 +160,40 @@ export default function Dashboard() {
     }
   };
 
-  // Custom Icons for Map Markers
-  const uavIcon = new L.Icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/2991/2991662.png", // UAV Icon
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-  });
+  // Load Leaflet CSS dynamically
+  useEffect(() => {
+    import("leaflet/dist/leaflet.css");
+  }, []);
 
-  const birdIcon = new L.Icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/305/305879.png", // Bird Icon
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-  });
+  // Load Leaflet and icons only on the client side
+  let L, uavIcon, birdIcon, aircraftIcon, unknownIcon;
+  if (typeof window !== "undefined") {
+    L = require("leaflet");
 
-  const aircraftIcon = new L.Icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/305/305873.png", // Aircraft Icon
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-  });
+    uavIcon = new L.Icon({
+      iconUrl: "https://cdn-icons-png.flaticon.com/512/2991/2991662.png", // UAV Icon
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+    });
 
-  const unknownIcon = new L.Icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/6386/6386809.png", // Unknown Icon
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-  });
+    birdIcon = new L.Icon({
+      iconUrl: "https://cdn-icons-png.flaticon.com/512/305/305879.png", // Bird Icon
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+    });
+
+    aircraftIcon = new L.Icon({
+      iconUrl: "https://cdn-icons-png.flaticon.com/512/305/305873.png", // Aircraft Icon
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+    });
+
+    unknownIcon = new L.Icon({
+      iconUrl: "https://cdn-icons-png.flaticon.com/512/6386/6386809.png", // Unknown Icon
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+    });
+  }
 
   // Function to get the appropriate icon based on object type
   const getIcon = (type) => {
