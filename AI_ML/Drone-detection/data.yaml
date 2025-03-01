@@ -1,0 +1,6 @@
+path: C:/Users/ayush/OneDrive/Desktop/drone_model
+train: ../train/images
+val: ../images
+
+nc: 2
+names: ['0', '1']
