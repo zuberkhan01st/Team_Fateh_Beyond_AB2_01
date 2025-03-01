@@ -10,6 +10,7 @@ exports.getThreats = async (req, res) => {
     }
 };
 
+
 // Add a new threat
 exports.createThreat = async (req, res) => {
     const { type, location, severity } = req.body;
