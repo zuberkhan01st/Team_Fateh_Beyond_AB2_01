@@ -1,0 +1,15 @@
+path: D:/AB2_PS01
+
+train: train/images
+val: valid/images
+test: test/images
+
+nc: 3
+names: ['AirPlane', 'Drone', 'Helicopter']
+
+roboflow:
+  workspace: ahmedmohsen
+  project: drone-detection-new-peksv
+  version: 5
+  license: MIT
+  url: https://universe.roboflow.com/ahmedmohsen/drone-detection-new-peksv/dataset/5
