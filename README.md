@@ -8,19 +8,19 @@ The **Airborne Threat Detection System** is an advanced AI-powered solution desi
 ## Demo Screenshots
 
 ### **Home Page**
-![Dashboard Screenshot](./public/1_1.jpg)
+![Dashboard Screenshot](https://github.com/zuberkhan01st/Team_Fateh_Beyond_AB2_01/blob/main/public/1_1.jpg)
 
 ### **Features**
-![Threat Detection](../Team_Fateh_Beyond_AB2_01/Frontend/my-next-app/public/2.jpg)
+![Threat Detection](https://github.com/zuberkhan01st/Team_Fateh_Beyond_AB2_01/blob/main/public/2.jpg)
 
 ### **Login**
-![Interactive Map](../Team_Fateh_Beyond_AB2_01/Frontend/my-next-app/public/1.jpg)
+![Interactive Map](https://github.com/zuberkhan01st/Team_Fateh_Beyond_AB2_01/blob/main/public/1.jpg)
 
 ### **Dashboard**
-![Interactive Map](../Team_Fateh_Beyond_AB2_01/Frontend/my-next-app/public/4.jpg)
+![Interactive Map](https://github.com/zuberkhan01st/Team_Fateh_Beyond_AB2_01/blob/main/public/4.jpg)
 
 ### **Interactive Map**
-![Interactive Map](../Team_Fateh_Beyond_AB2_01/Frontend/my-next-app/public/image.png)
+![Interactive Map](https://github.com/zuberkhan01st/Team_Fateh_Beyond_AB2_01/blob/main/public/image.png)
 
 
 ---
