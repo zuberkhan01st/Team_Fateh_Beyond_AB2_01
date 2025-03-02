@@ -8,7 +8,7 @@ The **Airborne Threat Detection System** is an advanced AI-powered solution desi
 ## Demo Screenshots
 
 ### **Home Page**
-![Dashboard Screenshot](../Team_Fateh_Beyond_AB2_01/Frontend/my-next-app/public/1_1.jpg)
+![Dashboard Screenshot](./public/1_1.jpg)
 
 ### **Features**
 ![Threat Detection](../Team_Fateh_Beyond_AB2_01/Frontend/my-next-app/public/2.jpg)
