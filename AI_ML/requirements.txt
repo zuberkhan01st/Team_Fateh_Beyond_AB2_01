@@ -4,3 +4,15 @@ ultralytics
 opencv-python
 numpy
 pillow
+fastapi
+uvicorn
+torch
+torchvision
+torchaudio
+numpy
+opencv-python-headless
+ultralytics
+norfair
+filterpy
+pydantic
+python-multipart
